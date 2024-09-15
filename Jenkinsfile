@@ -9,7 +9,9 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
+                // This step should not normally be used in your script. Consult the inline help for details.
+                withDockerRegistry(credentialsId: 'docker-hub-test', url: 'https://index.docker.io/v1/') {
+    
                     sh 'docker build -t viet/jenkins-pipline:v10 .'
                     sh 'docker push viet/jenkins-pipline:v10'
 
