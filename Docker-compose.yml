@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   jenkins:
-    image: jenkins/jenkins:lts  # Sử dụng image chính thức của Jenkins
+    image: jenkins/jenkins:lts-docker  # Sử dụng image chính thức của Jenkins
     container_name: jenkins
     user: root  # Chạy với quyền root để cài đặt Docker CLI
     ports:
