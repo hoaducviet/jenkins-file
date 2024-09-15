@@ -13,7 +13,7 @@ pipeline {
                 withDockerRegistry(credentialsId: 'docker-hub-test', url: 'https://index.docker.io/v1/') {
     
                     // sh 'docker build -t viehoaduc/jenkins-pipline:v10 .'
-                    sh 'docker push viehoaduc/jenkins-pipline:v10'
+                    sh 'docker image push viehoaduc/jenkins-pipline:v10'
                    
                 }
             }
