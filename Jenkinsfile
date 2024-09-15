@@ -12,8 +12,8 @@ pipeline {
                 // This step should not normally be used in your script. Consult the inline help for details.
                 withDockerRegistry(credentialsId: 'docker-hub-test', url: 'https://index.docker.io/v1/') {
     
-                    sh 'docker build -t viet/jenkins-pipline:v10 .'
-                    sh 'docker push viet/jenkins-pipline:v10'
+                    sh 'docker build -t viehoaduc/jenkins-pipline:v10 .'
+                    sh 'docker push viethoaduc/jenkins-pipline:v10'
 
                 }
             }
