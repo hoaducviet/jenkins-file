@@ -1,0 +1,80 @@
+<div>
+    <div class="row ps-3 pt-4"><h1>Danh Sách Người Dùng</h1></div>
+   
+    <div class="container">
+        <div class="row ms-4 mt-5" style="width: 400px">
+            <label for="search-list-user">Search</label><br/>
+            <div class="input-group input-group-sm mb-3" id="search-list-user" name="search-list-user">
+                <span class="input-group-text" id="inputGroup-sizing-sm"><i class="bi bi-search-heart"></i></span>
+                <input type="text" class="form-control" name="search-list-user" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+        </div>
+
+        <div class="row me-5">
+            <table class="table ms-5 pe-5 shadow rounded-5">
+                <thead class="header-table">
+                <tr style="height: 40px;">
+                    <th style="width:200px;">Tên</th>
+                    <th style="width:200px;">Giới Tính</th>
+                    <th style="width:200px;">Số Điện Thoại</th>
+                    <th style="width:250px;">Email</th>
+                    <th style="width:200px;">Địa Chỉ</th>
+                    <th class="text-center" style="width:200px;">Tác Vụ</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each parents}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.gender}}</td>
+                        <td>{{this.phone}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.address}}</td>
+                        <td class="d-flex justify-content-center">
+                            <a href="/admin/user/info/{{this._id}}" class="btn btn-primary me-4">Xem</a>
+                            <button class="btn btn-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#delete-user-modal">Xoá</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="delete-user-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xoá Người Dùng</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn người dùng học này không?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-user" type="button" class="btn btn-danger">Xoá Bỏ</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form method="POST" name="delete-user-form"></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var userId
+        var deleteForm = document.forms['delete-user-form']
+        $('#delete-user-modal').on('show.bs.modal',function(e){
+            var button = $(e.relatedTarget)
+            userId = button.data('id')
+        })
+        $('#btn-delete-user').on('click',function(){
+            deleteForm.action = '/admin/user/delete/' + userId + '?_method=DELETE'
+            deleteForm.submit()
+            
+        })
+
+        
+    })
+</script>

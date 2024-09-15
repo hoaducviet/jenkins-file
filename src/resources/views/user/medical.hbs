@@ -1,0 +1,27 @@
+<div class="">
+    <div class="row ps-3 pt-4"><h1>Sổ Khám Bệnh</h1></div>
+    <div class="row mt-5">
+        <div class="col-6 mt-5">
+                <div class="col-12 d-flex align-items-center justify-content-center mb-4">
+                    <a href="/user/medical/info/parent" class="btn btn-primary" style="width: 20rem; font-size: 25px">Sổ Khám Bệnh Của Tôi</a>
+                </div>
+                <div class="col-12 d-flex align-items-center justify-content-center">
+                    <div class="card mb-3 shadow-sm" style="width: 20rem;">
+                        <div class="card-body shadow-sm">
+                            <div class="card-title text-center" style="font-size: 25px;"><strong>Sổ Khám Bệnh Của Con</strong></div>
+                            {{#each childrens}}
+                            <hr>
+                            <div class="card-text text-center">
+                            <a href="/user/medical/info/children/{{this._id}}" class="btn text-decoration-none">{{this.name}}</a>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="col-6">
+            <img src="/img/medical_info.png" alt="Logo.png" class="shadow-sm" style="width:700px;">
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,40 @@
+<div>
+    <div class="row ps-3 pt-4"><h1>Đơn Đăng Ký Tiêm Chủng</h1></div>
+    <form method="POST" action="/admin/register/confirm/{{register._id}}?_method=PUT" class="">
+        <div class="row d-flex align-items-center justify-content-center m-5">
+            <div class="col-3"></div>
+            <div class="col-6 shadow-sm">
+                <div class="row ms-5 mt-5">
+                    <div class="col-6"><strong>Người Tiêm Chủng</strong></div>
+                    <div class="col-6">{{register.name}}</div>
+                </div>
+                <div class="row ms-5 mt-5">
+                    <div class="col-6"><strong>Ngày Sinh</strong></div>
+                    <div class="col-6">{{register.dateOfBirth}}</div>
+                </div>
+                <div class="row ms-5 mt-5">
+                    <div class="col-6"><strong>Giới Tính</strong></div>
+                    <div class="col-6">{{register.gender}}</div>
+                </div>
+                <div class="row ms-5 mt-5">
+                    <div class="col-6"><strong>Tên Mũi Tiêm</strong></div>
+                    <div class="col-6">{{register.nameVaccine}}</div>
+                </div>
+                <div class="row ms-5 mt-5">
+                    <div class="col-6"><strong>Ngày Tiêm</strong></div>
+                    <div class="col-6">{{register.date}}</div>
+                </div>
+                <div class="row ms-5 mt-5 mb-5">
+                    <div class="col-6"><strong>Giờ Tiêm</strong></div>
+                    <div class="col-6">{{register.time}}</div>
+                </div>
+                <div class="row ms-5 m-5">
+                    <a href="/admin/register" class="btn btn-danger ms-auto me-5" style="width: 80px;">Huỷ</a>
+                    <button type="submit" class="btn btn-primary me-5" style="width:80px;">Duyệt</button>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </form>
+</div>
+

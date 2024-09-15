@@ -1,0 +1,45 @@
+<div>
+    <div class="row ps-3 pt-4"><h1>Cập Nhật Thông Tin Mũi Tiêm</h1></div>
+    <div class="container mt-4">
+        <form method="POST" action="/admin/injection/update/{{injection._id}}?_method=PUT">
+            <div class="row m-4">
+                <div class="col-12 mt-4">
+                    <label for="injection-name" class="mb-2">Tên Vaccine</label>
+                    <input class="form-control form-control" name="nameVaccine" id="injection-name" value="{{injection.nameVaccine}}" type="text" va opacity="0.1" required style="width:800px;">
+                </div>
+                <div class="col-12 mt-4">
+                    <label for="object-name" class="mb-2">Đối Tượng</label>
+                    <select class="form-select form-select" name="object" id="object-name" value="{{injection.object}}" style="width: 800px;">
+                        <option selected>{{injection.object}}</option>
+                        <option value="Trẻ Em">Trẻ Em</option>
+                        <option value="Bà Mẹ">Bà Mẹ</option>
+                    </select>
+                </div>
+                <div class="col-12 mt-4">
+                    <label for="injection-made" class="mb-2">Xuất Xứ</label>
+                    <input class="form-control form-control" name="made" id="injection-made" value="{{injection.made}}" type="text" opacity="0.1" style="width:800px;">
+                </div>
+                <div class="col-12 mt-4">
+                    <label for="injection-uses" class="mb-2">Công Dụng</label>
+                    <input class="form-control form-control" name="description" id="injection-uses" value="{{injection.description}}" type="text" opacity="0.1" style="width:800px;">
+                </div>
+                <div class="col-12 mt-4">
+                    <label for="injection-number" class="mb-2">Số Lượng</label>
+                    <input class="form-control form-control" name="number" id="injection-number" value="{{injection.number}}" type="text" opacity="0.1" style="width:800px;">
+                </div>
+                <div class="col-12 mt-4">
+                    <label for="injection-date" class="mb-2">Ngày Hết Hạn</label>
+                    <input class="form-control form-control" name="date" id="injection-date" value="{{injection.date}}" type="text" opacity="0.1" style="width:800px;">
+                </div>
+            </div>
+            <div class="row justify-content-center ms-4 mt-5">
+                <div class="col-12"><h4>Triệu Chứng Thường Gặp Sau Tiêm:</h4></div>
+                <textarea class="col-12 ms-5 me-5" name="afterInjection" rows="5" cols="10">{{injection.afterInjection}}</textarea>
+            </div>
+            <div class="row m-4">
+                <a href="/admin/injection" class="btn btn-danger ms-auto me-3" style="width: 90px;">Huỷ</a>
+                <button type="submit" class="btn btn-primary me-3" style="width: 90px;">Lưu</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts  # Sử dụng image chính thức của Jenkins
+    container_name: jenkins
+    user: root  # Chạy với quyền root để cài đặt Docker CLI
+    ports:
+      - "8080:8080"  # Cổng Jenkins UI
+      - "50000:50000"  # Cổng Jenkins agent
+    volumes:
+      - /Users/hoaducviet/jenkins:/var/jenkins_home  # Volume để lưu dữ liệu Jenkins
+      - /var/run/docker.sock:/var/run/docker.sock  # Liên kết Docker socket từ host
+    networks:
+      - jenkins-net
+
+
+networks:
+  jenkins-net:
+    driver: bridge  # Tạo network để các container kết nối với nhau

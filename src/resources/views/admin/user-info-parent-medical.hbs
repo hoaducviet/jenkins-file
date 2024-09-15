@@ -1,0 +1,85 @@
+<div class="row ps-3 pt-4"><h1>Sổ Khám Bệnh Của Mẹ</h1></div>
+ <div class="row me-5">
+    <a href="/admin/user/info/{{parent._id}}" class="btn btn-primary ms-auto me-5" style="width: 100px;">Quay Lại</a>
+</div>
+<div>
+    <div class="row m-5 justify-content-center">
+        <div class="col-6 border-2 border-end shadow-sm">
+            <div class="row mt-5">
+                <div class="col-4"><strong>Họ Tên</strong></div>
+                <div class="col-8">{{parent.name}}</div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-4"><strong>Ngày Sinh</strong></div>
+                <div class="col-8">{{parent.dateOfBirth}}</div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-4"><strong>Giới Tính</strong></div>
+                <div class="col-8">{{parent.gender}}</div>
+            </div>
+            <div class="row m-5">
+                 <div class="card-body">
+
+                        <h4 class="card-title text-center">Lịch Sử Người Bệnh</h4><hr>
+                        <div class="nav flex-column nav-pills me-3 d-flex align-items-center justify-content-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                            {{#each registers}}
+                            <button class="nav-link {{#if (option @index 0)}}active{{/if}}" id="v-pills-tab-{{@index}}" data-bs-toggle="pill" data-bs-target="#v-pills-content-{{@index}}" type="button" role="tab" aria-controls="v-pills-content-{{@index}}" aria-selected="{{#if (option @index 0)}}true{{/if}}" style="width: 400px; height: 50px;">{{this.date}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{this.option}}</button>
+                            {{/each}}
+                                        
+                        </div>
+                 </div>
+            </div>
+        </div>
+
+
+        <div class="col-6 d-flex align-items-center justify-content-center">
+            <div class="tab-content" id="v-pills-tabContent">
+                {{#each registers}}
+                <div class="tab-pane fade {{#if (option @index 0)}}show active{{/if}}" id="v-pills-content-{{@index}}" role="tabpanel" aria-labelledby="v-pills-tab-{{@index}}" tabindex="0">
+                    {{#if (option this.option "Khám Bệnh")}}
+                        <div class="col-12 card mb-3" style="width: 30rem;">
+                            <div class="card-body shadow">
+                                <h4 class="card-title text-center">Thông Tin</h4><hr>
+                                <div class="row">
+                                    <div class="col-6"><strong>Trạng Thái</strong></div>
+                                    <div class="col-6">Đã Khám</div>
+                                    <div class="col-6 mt-2"><strong>Thời Gian</strong></div>
+                                    <div class="col-6 mt-2">{{this.time}}</div>
+                                    <div class="col-6 mt-2"><strong>Ngày</strong></div>
+                                    <div class="col-6 mt-2 mb-2">{{this.date}}</div><hr>
+                                    <div class="col-12"><strong>Triệu Chứng Ban Đầu</strong></div>
+                                    <div class="col-12 mt-2"><p>{{this.description}}</p></div><hr>
+                                    <div class="col-12 mt-2"><strong>Kết Quả Thăm Khám</strong></div>
+                                    <div class="col-12 mt-2"><p>{{this.resultSeeADoctor}}</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    {{else}}
+                        <div class="col-12 card mb-3" style="width: 30rem;">
+                            <div class="card-body shadow">
+                                <h4 class="card-title text-center">Thông Tin</h4><hr>
+                                <div class="row">
+                                    <div class="col-6"><strong>Trạng Thái</strong></div>
+                                    <div class="col-6">Đã Tiêm</div>
+                                    <div class="col-6 mt-2"><strong>Thời Gian</strong></div>
+                                    <div class="col-6 mt-2">{{this.time}}</div>
+                                    <div class="col-6 mt-2"><strong>Ngày</strong></div>
+                                    <div class="col-6 mt-2 mb-2">{{this.date}}</div>
+                                    <div class="col-6 mt-2"><strong>Mũi Tiêm</strong></div>
+                                    <div class="col-6 mt-2 mb-2">{{this.nameVaccine}}</div><hr>
+                                    <div class="col-12"><strong>Chỉ Định Sau Tiêm</strong></div>
+                                    <div class="col-12 mt-2"><p>{{this.indication}}</p></div><hr>
+                                    <div class="col-12 mt-2"><strong>Triệu Chứng Sau Tiêm</strong></div>
+                                    <div class="col-12 mt-2"><p>{{this.symptom}}</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+</div>
+ 

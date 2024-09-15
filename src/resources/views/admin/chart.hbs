@@ -1,0 +1,115 @@
+<div>
+    <div class="row ps-3 pt-4"><h1>Thống Kê</h1></div>
+    <div class="container">
+        <div class="row m-5 ps-5">
+            <div class="nav nav-pills me-3 d-flex align-items-center justify-content-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active shadow m-4" style="width: 200px;" id="v-pills-tab-1" data-bs-toggle="pill" data-bs-target="#v-pills-content-1" type="button" role="tab" aria-controls="v-pills-content-1" aria-selected="{true" style="width: 400px; height: 50px;"><i class="bi bi-people" style="background-color: transparent;"> </i>Người Mẹ <br>{{countParent}}</button>
+                <button class="nav-link shadow m-4" style="width: 200px;" id="v-pills-tab-2" data-bs-toggle="pill" data-bs-target="#v-pills-content-2" type="button" role="tab" aria-controls="v-pills-content-2" aria-selected="false" style="width: 400px; height: 50px;"><i class="fas fa-baby" style="background-color: transparent;"> </i> Trẻ Em <br> {{countChildren}}</button>
+                <button class="nav-link shadow m-4" style="width: 200px;" id="v-pills-tab-3" data-bs-toggle="pill" data-bs-target="#v-pills-content-3" type="button" role="tab" aria-controls="v-pills-content-3" aria-selected="false" style="width: 400px; height: 50px;"><i class="fas fa-syringe" style="background-color: transparent;"> </i> Mũi Tiêm <br> {{countInjection}} </button>
+                <button class="nav-link shadow m-4" style="width: 200px;" id="v-pills-tab-3" data-bs-toggle="pill" data-bs-target="#v-pills-content-4" type="button" role="tab" aria-controls="v-pills-content-4" aria-selected="false" style="width: 400px; height: 50px;"><i class="bi bi-calendar2-range" style="background-color: transparent;"> </i> Khám Bệnh <br> {{countSeeADoctor}} </button>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-content-1" role="tabpanel" aria-labelledby="v-pills-tab-1" tabindex="0">
+                        <table class="table m-5 pe-5 shadow rounded-5">
+                            <thead class="header-table ">
+                            <tr style="height: 40px;">
+                                <th style="width:200px;">Tên</th>
+                                <th style="width:200px;">Ngày Sinh</th>
+                                <th style="width:200px;">SĐT</th>
+                                <th style="width:200px;">Địa Chỉ</th>
+                                <th style="width:200px;">Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {{#each parents}}
+                                <tr style="height: 100px;">
+                                    <td>{{this.name}}</td>
+                                    <td>{{this.dateOfBirth}}</td>
+                                    <td>{{this.phone}}</td>
+                                    <td>{{this.address}}</td>
+                                    <td>{{this.email}}</td>
+                                
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                     <div class="tab-pane fade show" id="v-pills-content-2" role="tabpanel" aria-labelledby="v-pills-tab-2" tabindex="0">
+                        <table class="table m-5 pe-5 shadow rounded-5">
+                            <thead class="header-table ">
+                            <tr style="height: 40px;">
+                                <th style="width:200px;">Tên</th>
+                                <th style="width:200px;">Giới Tính</th>
+                                <th style="width:200px;">Ngày Sinh</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {{#each childrens}}
+                                <tr style="height: 100px;">
+                                    <td>{{this.name}}</td>
+                                    <td>{{this.gender}}</td>
+                                    <td>{{this.dateOfBirth}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                     <div class="tab-pane fade show" id="v-pills-content-3" role="tabpanel" aria-labelledby="v-pills-tab-3" tabindex="0">
+                        <table class="table m-5 pe-5 shadow rounded-5">
+                            <thead class="header-table ">
+                            <tr style="height: 40px;">
+                                <th style="width:200px;">Tên</th>
+                                <th style="width:200px;">Giới Tính</th>
+                                <th style="width:200px;">Ngày Sinh</th>
+                                <th style="width:200px;">Tên Vaccine</th>
+                                <th style="width:200px;">Ngày Tiêm</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                               {{#each injections}}
+                                <tr style="height: 100px;">
+                                    <td>{{this.name}}</td>
+                                    <td>{{this.gender}}</td>
+                                    <td>{{this.dateOfBirth}}</td>
+                                    <td>{{this.nameVaccine}}</td>
+                                    <td>{{this.date}}</td>
+                                
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                     <div class="tab-pane fade show" id="v-pills-content-4" role="tabpanel" aria-labelledby="v-pills-tab-4" tabindex="0">
+                        <table class="table m-5 pe-5 shadow rounded-5">
+                            <thead class="header-table ">
+                            <tr style="height: 40px;">
+                                <th style="width:200px;">Tên</th>
+                                <th style="width:200px;">Giới Tính</th>
+                                <th style="width:200px;">Ngày Sinh</th>
+                                <th style="width:200px;">Ngày Khám</th>
+                                <th style="width:400px;">Kết Quả</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {{#each seeadoctors}}
+                                <tr style="height: 100px;">
+                                    <td>{{this.name}}</td>
+                                    <td>{{this.gender}}</td>
+                                    <td>{{this.dateOfBirth}}</td>
+                                    <td>{{this.date}}</td>
+                                    <td>{{this.resultSeeADoctor}}</td>
+                                
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+ 

@@ -1,0 +1,80 @@
+
+<div class="container-fluid">
+  <ul class="nav nav-tabs sticky-top">
+        
+        <li class="navbar-brand">
+          <a href="/user/home" class="text-decoration-none d-flex align-items-center">
+          <img src="/img/logo.png" alt="Logo" style="height: 70px;"/>
+          <h3>Mama & Baby</h3>
+          </a>
+        </li>
+        <li class="nav-item ms-auto m-2">
+            <a class="nav-link" aria-current="page" href="/user/home">Home</a>
+        </li> 
+        <li class="nav-item m-2">
+            <a class="nav-link" aria-current="page" href="/user/register">Đăng Ký</a>
+        </li>
+         <li class="nav-item m-2">
+            <a class="nav-link" aria-current="page" href="/user/profile">Hồ sơ</a>
+        </li>
+         <li class="nav-item m-2">
+            <a class="nav-link" aria-current="page" href="/user/medical">Sổ Khám Bệnh</a>
+        </li>
+
+        <li class="nav-item ms-auto m-2">
+            <div class="input-group" >
+                <input type="search" class="form-control form-control-sm" id="input-search" placeholder="Search" aria-label="Search" aria-describedby="icon-search-btn-group">
+                <div class="input-group-text" id="icon-search-btn-group" style="background-color: white;"><label for="input-search"><i class="bi bi-search"></i></label></div>
+            </div>
+        </li>
+        <li class="nav-item m-2">
+            <a class="nav-link shadow-sm" id="notificationIcon">
+                <i class="bi bi-bell-fill"></i>
+            </a>
+            <div id="notificationPopoverContent" class="d-none">
+                <ul class="list-group">
+                  <li class="list-group-item">Notification 1</li>
+                  <li class="list-group-item">Notification 2</li>
+                  <li class="list-group-item">Notification 3</li>
+                </ul>
+            </div>
+        </li> 
+       
+        <li class="nav-item m-2">
+          <a class="btn nav-link shadow-sm dropdown" data-bs-toggle="dropdown">
+              <i class="bi bi-person-circle" id="profileIcon"></i>
+          </a>
+          <ul class="dropdown-menu">
+              
+              <li><a class="dropdown-item" href="/destroy/session">Đăng Xuất</a></li>
+          </ul>
+            
+        </li>
+        
+    </ul>
+  </div>
+</div>
+ <script>
+    var notificationPopover = new bootstrap.Popover(document.getElementById('notificationIcon'), {
+        container: 'body',
+        content: function () {
+            return document.getElementById('notificationPopoverContent').innerHTML;
+        },
+        placement: 'bottom',
+        html: true,
+        
+    });
+    document.addEventListener('click', function (event) {
+        var targetElement = event.target;
+        if (!targetElement.matches('#notificationIcon')) {
+            notificationPopover.hide();
+        }
+    });
+    
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    const popover = new bootstrap.Popover('.popover-dismiss', {
+    trigger: 'focus'
+    })
+    
+</script>

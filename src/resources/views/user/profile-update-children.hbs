@@ -1,0 +1,44 @@
+<div>
+    <div class="row ps-3 pt-4"><h1>Cập Nhật Thông Tin Con</h1></div>
+        <form method="POST" action="/user/profile/update/children/{{children._id}}?_method=PUT">
+            <div class="row">
+                <a href="/user/profile" class="btn btn-danger ms-auto" style="width: 100px;">Huỷ</a>
+                <button type="submit" class="btn btn-primary ms-3 me-5" style="width: 100px;">Lưu</button>
+            </div>
+            <div class="row mt-5">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row mt-5 ms-auto">
+
+                        <div class="row">
+                            <div class="col-4"><strong>Họ Tên</strong></div>
+                            <div class="col-8">
+                                <input class="form-control" id="name" name="name" type="text"  value="{{children.name}}" aria-label=" example">
+
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-4"><strong>Giới Tính</strong></div>
+                            <div class="col-8">
+                                <input class="form-control" id="gender" name="gender" type="text"  value="{{children.gender}}" aria-label=" example">
+
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-4"><strong>Ngày Sinh</strong></div>
+                            <div class="col-8">
+                                <input class="form-control" id="date-of-bitrh" name="dateOfBirth" type="text"  value="{{children.dateOfBirth}}" aria-label=" example">
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col-3"></div>
+                
+            </div>
+            
+        </form>
+    </div>
+</div>

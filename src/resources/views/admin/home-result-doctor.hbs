@@ -1,0 +1,43 @@
+<div>
+    <div class="row ps-3 pt-4"><h1>Phiếu Kết Quả Khám Bệnh</h1></div>
+    <form method="POST" action="/admin/home/result/doctor/store/{{register._id}}?_method=PUT" class="">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-10">
+                <div class="row mt-5">
+                    <div class="col-4"><strong>Người Khám Bệnh</strong></div>
+                    <div class="col-8 ">{{register.name}}</div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-4"><strong>Ngày Sinh</strong></div>
+                    <div class="col-8">{{register.dateOfBirth}}</div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-4"><strong>Giới Tính</strong></div>
+                    <div class="col-8">{{register.gender}}</div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-4"><strong>Ngày Khám</strong></div>
+                    <div class="col-8">{{register.date}}</div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-4"><strong>Giờ Khám</strong></div>
+                    <div class="col-8">{{register.time}}</div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-4"><strong>Triệu Chứng Ban Đầu</strong></div>
+                    <div class="col-12 ps-5 pe-5 border" style="height: 100px;">{{register.description}}</div>
+                </div>
+                <div class="row mt-5 ms-5 mb-5">
+                    <label for="result-see-a-doctor"><strong>Kết Quả Thăm Khám</strong></label>
+                    <textarea name="resultSeeADoctor" id="result-see-a-doctor" cols="30" rows="5"></textarea>
+                </div>
+                
+
+            </div>
+        </div>
+        <div class="row m-5">
+            <a href="/admin/home" class="btn btn-danger ms-auto me-3" style="width: 80px;">Huỷ</a>
+            <button type="submit" class="btn btn-primary me-5" style="width:80px;">Lưu</button>
+        </div>
+    </form>
+</div>

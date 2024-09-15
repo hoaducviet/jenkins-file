@@ -1,0 +1,82 @@
+<div>
+    <div class="row ps-3 pt-4"><h1>Mũi Tiêm</h1></div>
+   
+    <div class="container">
+        <div class="row">
+            <a href="/admin/injection/add" class="btn btn-primary d-flex align-items-center justify-content-center ms-auto" style="width: 200px; height: 50px; font-size: 20px;">+ Mũi Tiêm</a>
+        </div>
+        <div class="row ms-4 mt-5" style="width: 400px">
+            <label for="search-list-user">Search</label><br/>
+            <div class="input-group input-group-sm mb-3" id="search-list-user" name="search-list-user">
+                <span class="input-group-text" id="inputGroup-sizing-sm"><i class="bi bi-search-heart"></i></span>
+                <input type="text" class="form-control" name="search-list-user" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+        </div>
+
+        <div class="row me-5">
+            <table class="table ms-5 pe-5 shadow rounded-5">
+                <thead class="header-table">
+                <tr style="height: 40px;">
+                    <th style="width:250px;">Tên Vaccine</th>
+                    <th style="width:250px;">Đối Tượng</th>
+                    <th style="width:250px;">Xuất Xứ</th>
+                    <th style="width:250px;">Số Lượng</th>
+                    <th style="width:250px;">Ngày Hết Hạn</th>
+                    <th class="text-center" style="width:200px;">Tác Vụ</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each Injections}}
+                    <tr>
+                        <td>{{this.nameVaccine}}</td>
+                        <td>{{this.object}}</td>
+                        <td>{{this.made}}</td>
+                        <td>{{this.number}}</td>
+                        <td>{{this.date}}</td>
+                        <td class="d-flex justify-content-center">
+                            <a href="/admin/injection/info/{{this._id}}" class="btn btn-success me-4">Xem</a>
+                            <button class="btn btn-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#delete-injection-modal">Xoá</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal" id="delete-injection-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xoá Mũi Tiêm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xoá Mũi Tiêm này không?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-injection" type="button" class="btn btn-danger">Xoá Bỏ</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form method="POST" name="delete-injection-form"></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var injectionId
+        var deleteForm = document.forms['delete-injection-form']
+        $('#delete-injection-modal').on('show.bs.modal',function(e){
+            var button = $(e.relatedTarget)
+            injectionId = button.data('id')
+        })
+        $('#btn-delete-injection').on('click',function(){
+            deleteForm.action = '/admin/injection/' + injectionId + '?_method=DELETE'
+            deleteForm.submit()
+            
+        })
+
+        
+    })
+</script>

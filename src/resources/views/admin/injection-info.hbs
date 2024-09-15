@@ -1,0 +1,42 @@
+<div>
+    <div class="row ps-3 pt-4"><h1>Xem Mũi Tiêm</h1></div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="row m-5">
+                    <div class="col-6"><strong>Tên Mũi Tiêm</strong></div>
+                    <div class="col-6">{{injection.nameVaccine}}</div>
+                </div>
+                <div class="row m-5">
+                    <div class="col-6"><strong>Đối Tượng</strong></div>
+                    <div class="col-6">{{injection.object}}</div>
+                </div>
+                <div class="row m-5">
+                    <div class="col-6"><strong>Xuất Xứ</strong></div>
+                    <div class="col-6">{{injection.made}}</div>
+                </div>
+                <div class="row m-5">
+                    <div class="col-6"><strong>Công Dụng</strong></div>
+                    <div class="col-6">{{injection.description}}</div>
+                </div>
+                <div class="row m-5">
+                    <div class="col-6"><strong>Số Lượng</strong></div>
+                    <div class="col-6">{{injection.number}}</div>
+                </div>
+                <div class="row m-5">
+                    <div class="col-6"><strong>Ngày hết Hạn</strong></div>
+                    <div class="col-6">{{injection.date}}</div>
+                </div>
+        </div>
+        <div class="row justify-content-center ms-4 mt-5">
+            <div class="col-4"><h4>Triệu Chứng Thường Gặp Sau Tiêm:</h4></div>
+            <div class="col-8">{{injection.afterInjection}}</div>
+        </div>
+        <div class="row m-5">
+            <a href="/admin/injection/edit/{{injection._id}}" class="btn btn-danger ms-auto me-3" style="width: 90px;">Sửa</a>
+            <a href="/admin/injection" class="btn btn-primary me-3" style="width: 90px;">Quay Lại</a>
+        </div>
+    </div>
+</div>
+
+

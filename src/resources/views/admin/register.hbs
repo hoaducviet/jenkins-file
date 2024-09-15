@@ -1,0 +1,78 @@
+<div>
+    <div class="row ps-3 pt-4"><h1>Danh Sách Đăng Ký</h1></div>
+    
+    </div>
+    <div class="container">
+        <div class="row me-5">
+            <table class="table m-5 pe-5 shadow rounded-5">
+                <thead class="header-table">
+                <tr style="height: 40px;">
+                    <th style="width:200px;">Tên</th>
+                    <th style="width:200px;">Ngày Sinh</th>
+                    <th style="width:200px;">Loại</th>
+                    <th style="width:200px;">Thời gian</th>
+                    <th style="width:200px;">Ngày</th>
+                    <th class="text-center" style="width:200px;">Xử Lý</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each registers}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.dateOfBirth}}</td>
+                        <td>{{this.option}}</td>
+                        <td>{{this.time}}</td>
+                        <td>{{this.date}}</td>
+                        <td class="d-flex justify-content-center">
+                            <button class="btn btn-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#delete-register-modal">Xoá</button>
+                            {{#if (option this.option "Khám Bệnh")}}
+                                <a href="/admin/register/seeadoctor/{{this._id}}" class="btn btn-primary ms-4">Xem</a>
+                            {{else if (option this.option "Tiêm Chủng")}}
+                                <a href="/admin/register/injection/{{this._id}}" class="btn btn-primary ms-4">Xem</a>
+                            {{/if}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="delete-register-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xoá Yêu Cầu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xoá yêu cầu này không?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-register" type="button" class="btn btn-danger">Xoá Bỏ</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form method="POST" name="delete-register-form"></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var injectionId
+        var deleteForm = document.forms['delete-register-form']
+        $('#delete-register-modal').on('show.bs.modal',function(e){
+            var button = $(e.relatedTarget)
+            injectionId = button.data('id')
+        })
+        $('#btn-delete-register').on('click',function(){
+            deleteForm.action = '/admin/register/delete/' + injectionId + '?_method=DELETE'
+            deleteForm.submit()
+            
+        })
+
+        
+    })
+</script>

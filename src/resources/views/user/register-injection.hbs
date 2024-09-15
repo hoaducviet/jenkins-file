@@ -1,0 +1,50 @@
+<div class="">
+    <div class="row ps-3 pt-4"><h1>Đăng Ký Tiêm</h1></div>
+    <div class="container m-5">
+        <form method="POST" action="/user/register/injection/submit" class="ms-5 me-5">
+            <div class="col-12 ms-5">
+                <label for="object-name-injection" class="mb-2">Đối Tượng Tiêm</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm" name="name" id="object-name-injection" style="width: 500px;">
+                    <option selected>Chọn</option>
+                    {{#each persons}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+                <label for="vacxin-register" class="mt-4 mb-2">Chọn Vaccin</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm" name="nameVaccine" id="vacxin-register" style="width: 500px;">
+                    <option selected>Chọn</option>
+                   {{#each injections}}
+                    <option value="{{this.nameVaccine}}">{{this.nameVaccine}}</option>
+                   {{/each}}
+                </select>
+               <label for="object-time-injection" class="mt-4 mb-2">Thời Gian Tiêm</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm" name="time" id="object-time-injection" style="width: 500px;">
+                    <option selected>Chọn</option>
+                    <option value="8:00">8:00</option>
+                    <option value="8:30">8:30</option>
+                    <option value="9:00">9:00</option>
+                    <option value="9:00">9:00</option>
+                    <option value="9:30">9:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                </select>
+                <label for="date-register" class="mt-4 mb-2">Ngày Tiêm</label>
+                <input type="text" class="form-control form-control-sm" name="date" id="date-register" style="width: 500px;"></input>
+            </div>
+            <div class="row">
+                <a href="/user/register" class="btn btn-danger mt-5 ms-auto me-4" style="width:90px;">Huỷ</a>
+                <button type="submit" class="btn btn-primary mt-5 me-5" style="width: 90px;">Đăng Ký</button>
+            </div>
+        </form>
+    </div>
+</div>

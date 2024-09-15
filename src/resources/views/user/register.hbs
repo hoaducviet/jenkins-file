@@ -1,0 +1,75 @@
+<div>
+    <div class="container">
+        <div class="row ps-3 pt-4"><h1>Đăng Ký</h1></div>
+            <div class="row mt-5 d-flex align-items-center justify-content-center">
+                <div class="col-2 ms-auto ps-5 pt-5"><a href="/user/register/injection" class="btn btn-primary">+ Lịch Tiêm</a></div>
+                <div class="col-2 pt-5"><a href="/user/register/doctor" class="btn btn-primary">+ Lịch khám</a></div>
+            </div>
+        <div class="row me-5">
+            <table class="table m-5 pe-5 shadow rounded-5">
+                <thead class="header-table">
+                <tr style="height: 40px;">
+                    <th style="width:200px;">Tên</th>
+                    <th style="width:200px;">Ngày Sinh</th>
+                    <th style="width:200px;">Loại</th>
+                    <th style="width:200px;">Thời gian</th>
+                    <th style="width:200px;"> Ngày</th>
+                    <th colspan="2" style="width:200px;">Tình Trạng</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each registers}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.dateOfBirth}}</td>
+                        <td>{{this.option}}</td>
+                        <td>{{this.time}}</td>
+                        <td>{{this.date}}</td>
+                        <td>{{this.status}}</td>
+                        <td>
+                            <button class="btn btn-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#delete-register-modal">Xoá</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="delete-register-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xoá Yêu Cầu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xoá yêu cầu này không?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-register" type="button" class="btn btn-danger">Xoá Bỏ</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form method="POST" name="delete-register-form"></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var registerId
+        var deleteForm = document.forms['delete-register-form']
+        $('#delete-register-modal').on('show.bs.modal',function(e){
+            var button = $(e.relatedTarget)
+            registerId = button.data('id')
+        })
+        $('#btn-delete-register').on('click',function(){
+            deleteForm.action = '/user/register/' + registerId + '?_method=DELETE'
+            deleteForm.submit()
+            
+        })
+
+        
+    })
+</script>

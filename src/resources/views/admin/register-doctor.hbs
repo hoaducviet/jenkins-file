@@ -1,0 +1,37 @@
+<div>
+    <div class="row ps-3 pt-4"><h1>Đơn Đăng Ký Khám Bệnh</h1></div>
+    <form method="POST" action="/admin/register/confirm/{{register._id}}?_method=PUT" class="">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-4 mt-5"><strong>Người Khám Bệnh</strong></div>
+                    <div class="col-8 mt-5">{{register.name}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-4 mt-5"><strong>Ngày Sinh</strong></div>
+                    <div class="col-8 mt-5">{{register.dateOfBirth}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-4 mt-5"><strong>Giới Tính</strong></div>
+                    <div class="col-8 mt-5">{{register.gender}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-4 mt-5"><strong>Triệu Chứng</strong></div>
+                    <div class="col-12 mt-5 ps-5 pe-5 border" style="height: 100px;">{{register.description}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-4 mt-5"><strong>Ngày Khám</strong></div>
+                    <div class="col-8 mt-5">{{register.date}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-4 mt-5"><strong>Giờ Khám</strong></div>
+                    <div class="col-8 mt-5">{{register.time}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row m-5">
+            <a href="/admin/register" class="btn btn-danger ms-auto me-3" style="width: 80px;">Huỷ</a>
+            <button type="submit" class="btn btn-primary me-5" style="width:80px;">Duyệt</button>
+        </div>
+    </form>
+</div>

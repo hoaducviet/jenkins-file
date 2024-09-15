@@ -1,0 +1,23 @@
+@charset "UTF-8";
+h1 {
+  color: blue; }
+
+* {
+  background-color: aliceblue; }
+
+.button-option {
+  width: 200px;
+  height: 50px;
+  border-radius: 20px; }
+
+.header-table {
+  background-color: #366fa1; }
+
+/* CSS để đảm bảo các lớp Bootstrap không ghi đè lên kiểu hiển thị của modal */
+.modal-backdrop.show {
+  opacity: 0;
+  /* Ẩn backdrop */
+  display: none;
+  /* Ẩn backdrop */
+  pointer-events: none;
+  /* Tắt sự kiện click trên backdrop */ }

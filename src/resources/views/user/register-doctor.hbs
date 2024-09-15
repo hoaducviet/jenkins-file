@@ -1,0 +1,47 @@
+<div class="">
+    <div class="row ps-3 pt-4"><h1>Đăng Ký Khám</h1></div>
+    <div class="container m-5">
+        <form method="POST" action="/user/register/doctor/submit" class="ms-5 me-5">
+            <div class="col-12">
+                <label for="object-name-see-a-doctor" class="mb-2">Đối Tượng Khám</label>
+                <select name="name" class="form-select form-select-sm" aria-label=".form-select-sm" id="object-name-see-a-doctor" style="width: 500px;">
+                    <option selected>Chọn</option>
+                    {{#each persons}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+
+                <label for="object-description-see-a-doctor" class="mt-4 mb-2">Triệu Chứng</label>
+                <textarea name="description" id="object-description-see-a-doctor" class="form-control" cols="30" rows="10" class=""></textarea>
+                <label for="object-time-see-a-doctor" class="mt-4 mb-2">Thời Gian Khám</label>
+                <select name="time" class="form-select form-select-sm" aria-label=".form-select-sm" id="object-time-see-a-doctor" style="width: 500px;">
+                    <option selected>Chọn</option>
+                    <option value="8:00">8:00</option>
+                    <option value="8:30">8:30</option>
+                    <option value="9:00">9:00</option>
+                    <option value="9:00">9:00</option>
+                    <option value="9:30">9:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                </select>
+                <label for="date-see-a-doctor" class="mt-4 mb-2">Ngày Khám</label>
+                <input type="text" name="date" class="form-control form-control-sm" name="date" id="date-see-a-doctor" style="width: 500px;"></input>
+            </div>
+            <div class="row">
+                <a href="/user/register" class="btn btn-danger mt-5 ms-auto me-4" style="width:90px;">Huỷ</a>
+                <button type="submit" class="btn btn-primary mt-5 me-5" style="width: 90px;">Đăng Ký</button>
+            </div>
+        </form>
+
+    </div>
+</div>
