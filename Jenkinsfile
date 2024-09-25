@@ -20,10 +20,7 @@ pipeline {
         }
         stage('SSH-Server') {
             steps {
-                sshagent(['ssh_remote']) {
-                    sh 'ssh -o StrictHostKeyChecking=no -l root 13.238.253.145 touch test.txt'
-                    
-                }
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'remote-server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cp package.json package-demo.json', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'package.json')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
     }
