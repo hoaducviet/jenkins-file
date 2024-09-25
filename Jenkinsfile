@@ -22,7 +22,7 @@ pipeline {
 
         
                         sh 'docker build -t viethoaduc/jenkins-pipline:latest .'
-                        sh 'docker push viethoaduc/jenkins-pipline:lastest'
+                        sh 'docker push viethoaduc/jenkins-pipline:latest'
                     }
                    
                 }
