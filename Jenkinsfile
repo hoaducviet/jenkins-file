@@ -14,7 +14,7 @@ pipeline {
                 withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
                     script{
 
-                        def timestamp = new Date().format('yyyyMMddHHmmss')
+                        def timestamp = new Date().format('yyyy-MM-dd-HH-mm-ss')
                         
                         sh "docker pull viethoaduc/jenkins-pipline:latest || true"
                         sh "docker tag viethoaduc/jenkins-pipline:latest viethoaduc/jenkins-pipline:${timestamp} || true"
