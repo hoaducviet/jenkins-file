@@ -9,17 +9,21 @@ pipeline {
         }
         stage('Build Image') {
             steps {
+
                 // This step should not normally be used in your script. Consult the inline help for details.
                 withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
-                    def timestamp = new Date().format('yyyyMMddHHmmss')
-                    
-                    sh "docker pull viethoaduc/jenkins-pipline:latest || true"
-                    sh "docker tag viethoaduc/jenkins-pipline:latest viethoaduc/jenkins-pipline:${timestamp} || true"
-                    sh "docker push your-username/your-image:${timestamp} || true"
+                    script{
 
-    
-                    sh 'docker build -t viethoaduc/jenkins-pipline:latest .'
-                    sh 'docker push viethoaduc/jenkins-pipline:lastest'
+                        def timestamp = new Date().format('yyyyMMddHHmmss')
+                        
+                        sh "docker pull viethoaduc/jenkins-pipline:latest || true"
+                        sh "docker tag viethoaduc/jenkins-pipline:latest viethoaduc/jenkins-pipline:${timestamp} || true"
+                        sh "docker push viethoaduc/jenkins-pipline:${timestamp} || true"
+
+        
+                        sh 'docker build -t viethoaduc/jenkins-pipline:latest .'
+                        sh 'docker push viethoaduc/jenkins-pipline:lastest'
+                    }
                    
                 }
             }
