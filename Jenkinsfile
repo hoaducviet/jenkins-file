@@ -14,14 +14,12 @@ pipeline {
                 withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/') {
                     script{
 
-                        def timestamp = new Date().format('yyyy-MM-dd-HH-mm-ss')
-                        
-                        sh "docker pull viethoaduc/jenkins-pipline:latest || true"
-                        sh "docker tag viethoaduc/jenkins-pipline:latest viethoaduc/jenkins-pipline:${timestamp} || true"
-                        sh "docker push viethoaduc/jenkins-pipline:${timestamp} || true"
+                        def timestamp = new Date().format('yyyy-MM-dd')
 
+                        sh "docker build -t viethoaduc/jenkins-pipline:${timestamp} ."
+                        sh "docker tag viethoaduc/jenkins-pipline:${timestamp} viethoaduc/jenkins-pipline:latest} || true"
         
-                        sh 'docker build -t viethoaduc/jenkins-pipline:latest .'
+                        sh "docker push viethoaduc/jenkins-pipline:${timestamp} || true"
                         sh 'docker push viethoaduc/jenkins-pipline:latest'
                     }
                    
